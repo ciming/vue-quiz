@@ -1,0 +1,35 @@
+/**
+ * Created by buxingxu on 2017/5/29.
+ */
+export default  [
+  {
+    question: "工笔是哪种绘画形式的技法",
+    answers: {
+      A: "水彩画",
+      B: "油画",
+      C: "水粉画",
+      D: "国画"
+    },
+    correctAnswer: "D"
+  },
+  {
+    question: "冰激凌”是从哪国传进的外来语",
+    answers: {
+      A: "英国",
+      B: "法国",
+      C: "美国",
+      D: "俄国"
+    },
+    correctAnswer: "A"
+  },
+  {
+    question: "谬种流传”最早是宋朝人批评当时的",
+    answers: {
+      A: "官场黑暗",
+      B: "科举制度",
+      C: "社会风气",
+      D: "诗词风格"
+    },
+    correctAnswer: "B"
+  }
+];
