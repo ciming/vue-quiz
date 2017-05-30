@@ -1,4 +1,5 @@
 # vue-quiz
+简单的选项题页面，基于vue2.0
 
 > a vue quiz
 
