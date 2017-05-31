@@ -14,7 +14,7 @@
     <div id="submit">
       <button id="previous" v-if="currentSlide>0" @click="currentSlide--">上一题</button>
       <button id="next" v-if="currentSlide<questions.length-1" @click="currentSlide++">下一题</button>
-      <button type="button" @click="submit">提交答案</button>
+      <button type="button" @click="submit" v-if="showSubmit">提交答案</button>
     </div>
     <div id="results" v-if="showResult">
       共{{questions.length}}题，{{numCorrect}}题正确
@@ -23,7 +23,6 @@
 </template>
 
 <script>
-  import questions from './questions'
   import questionItem from './components/question-item.vue'
   export default {
     name: 'app',
@@ -37,17 +36,37 @@
        * @property {Number} currentSlide 当前问题索引
        * @property {Boolean} showResult 是否显示答案
        * @property {Number} numCorrect 答题错误个数
+       * @property {Boolean} showSubmit 是否显示提交按钮
        */
       return {
-        questions,
+        questions: [],
         currentSlide: 0,
         showResult: false,
-        numCorrect: 0
+        numCorrect: 0,
+        showSubmit: false
+      }
+    },
+    watch: {
+      currentSlide(value) {
+        if(value === this.questions.length-1) {
+          this.showSubmit = true;
+        }
       }
     },
     created() {
+      this.fetchData()
     },
     methods: {
+      fetchData () {
+        let _this = this;
+        fetch('static/question.json')
+          .then(function (response) {
+            return response.json();
+          })
+          .then(function (data) {
+            _this.questions = data.questions
+          })
+      },
       /**
        * 检查错误个数
        */
