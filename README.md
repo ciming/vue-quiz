@@ -1,5 +1,5 @@
 # vue-quiz
-简单的选项题页面，基于vue2.0
+简单的选项题问卷，基于vue2.0
 ## Demo
 [https://ciming.github.io/vue-quiz/](https://ciming.github.io/vue-quiz/)
 ## Json
